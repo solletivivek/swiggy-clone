@@ -1,6 +1,6 @@
-const Vendor = require('../models/Vendor');
 const jwt = require('jsonwebtoken');
 const dotenv= require('dotenv');
+const Vendor = require('../models/vendor');
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const verifyToken = async (req, res, next) => {
         return res.status(401).json({ status: 'failed', message: 'Access denied' });
     }
     try{
-        const decoded=jwt.verify(token,process.env.secretKey);
+        const decoded=jwt.verify(token,process.env.whatIsThis);
         const vendor=await(Vendor.findById(decoded.vendorId));
 
         if(!vendor){

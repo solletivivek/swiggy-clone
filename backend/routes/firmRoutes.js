@@ -1,9 +1,12 @@
-const express=require('express');
+const express = require('express');
+const router = express.Router();
 const verifyToken = require('../middlewares/verifyToken');
 const firmController = require('../controllers/firmController');
-const router=express.Router();
 
+// Correct usage of middleware in router
+router.use(verifyToken);
 
-router.post('/add-firm',verifyToken,firmController.addFirm);
+// Routes
+router.post('/add-firm', firmController.addFirm);
 
-module.exports=router;
+module.exports = router;
