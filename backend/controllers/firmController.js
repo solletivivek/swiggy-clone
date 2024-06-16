@@ -37,7 +37,9 @@ const addFirm= async(req,res)=>{
         image,
         vendor:req.vendorId
     });
-    await firm.save();
+    const savedFirm=await firm.save();
+    vendor.firm.push(savedFirm);
+    await vendor.save();
     return res.status(201).json({status:'success',message:'Firm added successfully'});
     }catch(error){
         console.log(error);

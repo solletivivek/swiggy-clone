@@ -47,6 +47,29 @@ const vendorLogin=async(req,res)=>{
     
 }
 
+const getAllVendors=async(req,res)=>{
+    try{
+        const vendors=await Vendor.find().populate('firm');
+        res.status(200).json({status:'success',vendors});
+    }catch(error){
+        console.log(error);
+        res.status(500).json({status:'failed',message:'Server error'});
+    }
 
+}
 
-module.exports={vendorRegister,vendorLogin}
+const getVendorById=async(req,res)=>{
+    const vendorId=req.params.id;
+    try{
+        const vendor=await Vendor.findById(vendorId);
+        if(!vendor){
+            return res.status(404).json({status:'failed',message:'Vendor not found'});
+        }
+        res.status(200).json({status:'success',vendor});
+    }catch(error){
+        console.log(error);
+        res.status(500).json({status:'failed',message:'Server error'});
+    }
+}
+
+module.exports={vendorRegister,vendorLogin,getAllVendors,getVendorById}
