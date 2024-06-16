@@ -14,7 +14,13 @@ const vendorSchema = new Schema({
     password:{
         type: String,
         required: true
-    }
+    },
+    firm:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Firm'
+        }
+    ]
     });
 
     const Vendor = mongoose.model('Vendor', vendorSchema);
