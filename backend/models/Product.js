@@ -8,7 +8,7 @@ const productSchema = new Schema({
         required: true
     },
     price:{
-        type: Stirng,
+        type: String,
         required: true
     },
     category: {
@@ -21,7 +21,7 @@ const productSchema = new Schema({
         type: String
     },
     bestSeller:{
-        type: String, 
+        type: Boolean, 
     },
     description:{
         type: String,
