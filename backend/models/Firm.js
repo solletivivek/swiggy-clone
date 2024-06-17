@@ -36,7 +36,7 @@ const firmSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Vendor'
     }],
-    product: [{
+    products: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'
     }]

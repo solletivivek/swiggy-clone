@@ -54,4 +54,24 @@ const addProduct = async (req, res) => {
     }
 };
 
+const getProductByFirm = async (req, res) => {
+    try {
+        const firmId = req.params.firmId;
+        const firm = await Firm.findById(firmId);
+
+        if(!firm){
+            return res.status(404).json({ status: 'failed', message: 'Firm not found' });
+        }
+
+        const products = await Product.find({ firm});
+
+        res.status(200).json({ status: 'success', products });
+
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ status: 'failed', message: 'Server error' });
+    }
+}
+
 module.exports = { addProduct: [upload.single('image'), addProduct] };
