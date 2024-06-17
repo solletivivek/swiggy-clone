@@ -49,4 +49,18 @@ const addFirm= async(req,res)=>{
     }
 }
 
-module.exports={addFirm:[upload.single('image'),addFirm]}
+const deleteFirmById=async(req,res)=>
+    {
+    try{
+        const firmId=req.params.firmId;
+        const deletedProduct= await Firm.findByIdAndDelete(firmId);
+        if(!deletedProduct){
+            return res.status(404).json({status:'failed',message:'Firm not found'});
+        } 
+    }catch(error){
+        console.log(error);
+        return res.status(500).json({status:'failed',message:'Server error'});
+    }}
+
+
+module.exports={addFirm:[upload.single('image'),addFirm],deleteFirmById}

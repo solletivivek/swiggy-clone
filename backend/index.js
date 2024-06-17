@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const firmRoutes = require('./routes/firmRoutes');
 const productRoutes = require('./routes/productRoutes');
 
+const path = require('path');
 const app = express();
 const port = 3000;
 
@@ -20,6 +21,8 @@ app.use(bodyParser.json());
 app.use('/vendor', vendorRoutes);
 app.use('/firm', firmRoutes);
 app.use('/product', productRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
