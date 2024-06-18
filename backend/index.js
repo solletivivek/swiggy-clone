@@ -29,7 +29,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.status(201).json({status:'true',message:'server started successfully'});
 });
 
 module.exports = app;
