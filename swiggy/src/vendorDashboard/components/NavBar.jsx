@@ -1,14 +1,15 @@
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({showLoginForm,showRegisterForm}) => {
+  // console.log(showLoginForm)
   return (
     <div className="navSection">
         <div className="company">
             Vendor dashboard
         </div>
 <div className="userAuth">
-    <span>Login</span>
-    <span>Register</span>
+    <span onClick={showLoginForm}>Login</span>
+    <span onClick={showRegisterForm}>Register</span>
 </div>
     </div>
   )
