@@ -3,6 +3,8 @@ import NavBar from '../components/NavBar'
 import SideBar from '../components/SideBar'
 import Login from '../components/forms/Login'
 import Register from '../components/forms/Register';
+import AddFirm from '../components/forms/AddFirm';
+import AddProduct from '../components/forms/AddProduct';
 
 const LandingPage = () => {
   return (
@@ -12,8 +14,10 @@ const LandingPage = () => {
 
         <div className="collectionSection">
         <SideBar/>
-        <Login/>
+        {/* <Login/> */}
         {/* <Register/> */}
+        {/* <AddFirm/> */}
+        <AddProduct/>
         </div>
         </section>
     </>
