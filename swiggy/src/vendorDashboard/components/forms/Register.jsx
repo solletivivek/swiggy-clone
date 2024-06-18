@@ -11,6 +11,7 @@ const Register = () => {
   const handleSubmit = async (e) => { 
     e.preventDefault();
     setLoading(true);
+    setError(''); 
     try {
       const response = await fetch(`${API_URL}/vendor/register`, {
         method: 'POST',
