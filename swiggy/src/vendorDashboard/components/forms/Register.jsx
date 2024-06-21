@@ -24,6 +24,9 @@ const Register = () => {
       setLoading(false);
       if(response.ok){
         console.log(data);
+        setUsername('');
+        setEmail('');
+        setPassword('');
         alert("Registration successful");
       } else {
         setError(data.message || "Registration failed");
